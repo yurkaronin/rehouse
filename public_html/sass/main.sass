@@ -1,0 +1,1440 @@
+@import "vars"
+@import "fonts"
+@import "libs"
+@import "mixins"
+
+$black: #363f48;
+$blue: #7492d6;
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: $default-font
+	overflow-x: hidden
+	color: $text
+	input, textarea
+		border: #666 1px solid
+		outline: none
+
+button
+	cursor: pointer
+	border: none
+	transition: all .3s
+	&:focus
+		outline: none !important
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+	&.img-width
+		width: 100%
+
+.text-center
+	text-align: center
+
+
+h1,h2,h3,h4, b, strong 
+	font-weight: normal
+	
+a
+	transition: all .3s
+	&:hover
+		text-decoration: none
+	&:focus
+		outline: none
+
+ul,li 
+	margin: 0
+	padding: 0
+	list-style-type: none
+
+.clearfix
+	&:after 
+    	display: block
+    	content: ""
+    	clear: both
+.done-w 
+	position: absolute
+	width: 100%
+	height: 100%
+	background-color: rgba(0, 0 ,0 , .5)
+	display: none
+	bottom: 0
+	right: 0
+	z-index: 10000
+
+.done-window 
+	position: fixed
+	display: block
+	left: 50%
+	top: 50%
+	-webkit-transform: translate(-50%, -50%)
+	-ms-transform: translate(-50%, -50%)
+	-o-transform: translate(-50%, -50%)
+	transform: translate(-50%, -50%)
+	background-color: rgba(255,255,255,1)
+	color: #010101
+	text-align: center
+	text-transform: uppercase
+	font-size: 20px
+	padding: 45px
+
+.done-window h3 
+	margin: 0
+
+.done-window small 
+	font-size: 14px
+	text-transform: none
+	line-height: 18px
+
+.video-responsive 
+	position: relative 
+	overflow:hidden
+	height: 270px
+	margin: auto
+	margin-bottom: 25px
+
+.video-responsive iframe, 
+.video-responsive object, 
+.video-responsive embed 
+	position: absolute
+	top: 0 
+	left: 0
+	width: 100%
+	height: 100%
+
+.mfp-fade.mfp-bg 
+	opacity: 0;
+	-webkit-transition: all 0.15s ease-out
+	-moz-transition: all 0.15s ease-out
+	transition: all 0.15s ease-out
+
+.mfp-fade.mfp-bg.mfp-ready 
+	opacity: 0.8
+
+.mfp-fade.mfp-bg.mfp-removing 
+  opacity: 0
+
+.mfp-fade.mfp-wrap .mfp-content 
+	opacity: 0
+	-webkit-transition: all 0.15s ease-out
+	-moz-transition: all 0.15s ease-out
+	transition: all 0.15s ease-out
+
+.mfp-fade.mfp-wrap.mfp-ready .mfp-content 
+	opacity: 1
+
+.mfp-fade.mfp-wrap.mfp-removing .mfp-content 
+	opacity: 0
+
+.main_mnu_button  
+	background-color: transparent
+	border: none
+	color: #000000
+	font-size: 36px
+
+
+
+.dib 
+	display: inline-block
+
+.text-right 
+	text-align: right
+
+.hidden 
+	display: none
+
+
+
+
+
+.main_mnu_button
+	width: 35px
+	height: 30px
+	border-top: 3px solid #000
+	border-bottom: 3px solid #000
+	position: relative
+	cursor: pointer
+	position: absolute
+	top: 7px
+	right: 15px
+	display: none
+	&:focus
+		outline: none !important
+	&:after
+		content: ''
+		display: inline-block
+		top: 50%
+		left: 0
+		right: 0
+		transform: translate(0, -50%) rotate(0)
+		height: 3px
+		width: 100%
+		position: absolute
+		background-color: #000
+		transition: all .3s
+	&:before
+		content: ''
+		display: inline-block
+		top: 50%
+		left: 0
+		right: 0
+		transform: translate(0, -50%) rotate(0)
+		height: 3px
+		width: 100%
+		position: absolute
+		background-color: #000
+		transition: all .3s
+.main_mnu_button.active
+	border-top: 3px solid transparent
+	border-bottom: 3px solid transparent
+	&:after
+		transform: translate(0, -50%) rotate(-45deg)
+	&:before
+		transform: translate(0, -50%) rotate(45deg)
+		
+
+
+
+#menu
+	@include center-right
+	z-index: 15
+	right: 40px
+	li
+		margin-bottom: 20px
+		a
+			display: block
+			width: 8px
+			height: 8px
+			position: relative
+			background-color: $black
+			&:hover
+				background-color: $black
+		&:last-child
+			margin-bottom: 0
+	li.active
+		a
+			background-color: transparent
+			&:after
+				content: ''
+				top: -2px
+				left: -2px
+				right: -2px
+				bottom: -2px
+				border: 2px solid $black
+				position: absolute
+				display: inline-block
+.btn-menu
+	position: absolute
+	top: 25px
+	left: 17px
+	z-index: 50
+	color: $red
+	font-size: 30px
+	line-height: 1
+	background-color: transparent
+
+
+.section
+	position: relative
+	z-index: 2
+header.header
+	position: fixed
+	top: -350px
+	opacity: 0
+	visibility: hidden
+	left: 0
+	right: 0
+	z-index: 100
+	padding-bottom: 0
+	background-color: #f1f2f6
+	box-shadow: 0 15px 35px rgba(0,0,0,.1)
+	transition: all .5s
+header.header.active
+	visibility: visible
+	opacity: 1
+	top: 0
+div.header
+	position: absolute
+	top: 0
+	left: 0
+	right: 0
+	z-index: 23
+nav
+	font-size: 14px
+	font-family: "Montserrat-Bold"
+	text-transform: uppercase
+	margin-top: 25px
+	text-align: center
+	ul
+		li
+			display: inline-block
+			margin: 0 25px
+			&:first-child
+				margin-left: 0
+			&:last-child
+				margin-right: 0
+			a
+				color: $black
+				display: block
+				padding-bottom: 12px
+				border-bottom: 7px solid transparent
+				&:hover
+					color: $blue
+					text-transform: uppercase
+					border-bottom: 7px solid $blue
+
+.header
+	padding: 15px 0
+	.container
+		position: relative
+		z-index: 15
+	.logo-box
+		font-size: 14px
+		padding-top: 20px
+		position: relative
+		padding-left: 165px
+		img
+			position: absolute
+			left: 0
+			top: 0
+	.phone-box
+		display: inline-block
+		font-family: "Montserrat-Bold"
+		position: relative
+		z-index: 120
+		a
+			color: $black
+			&:hover
+				color: $blue
+	.btn
+		border: 2px solid #dadada
+		padding: 11px 27px
+		margin-left: 40px
+		margin-right: 70px
+		&:hover
+			background-color: $blue
+			color: #fff
+			border: 2px solid $blue
+
+.btn
+	display: inline-block
+	text-transform: uppercase
+	font-size: 14px
+	font-family: "Montserrat-Bold"
+	padding: 18px 40px
+	position: relative
+
+
+.btn-border-black
+	color: $black
+	border: 1px solid $black
+	&:hover
+		background-color: $blue
+		color: #fff
+		border: 1px solid  $blue
+	
+
+
+.btn-black
+	background-color: $black
+	color: #fff
+	&:hover
+		color: #fff
+		background-color: $blue
+.btn-transparent
+	color: #fff
+	padding-right: 0
+	&:hover
+		color: $black
+.btn-arrow
+	padding-left: 70px
+	&:after
+		content: '\e800'
+		font-family: "icon"
+		@include center-left
+		font-size: 20px
+		left: 15px
+
+.section-one
+	z-index: 40
+	&:after
+		content: ''
+		position: absolute
+		display: inline-block
+		background: url(../img/fon_1.png) no-repeat center bottom
+		background-size: cover
+		left: 0
+		right: 0
+		top: 50%
+		bottom: 0
+		z-index: -1
+.main-block
+	margin-bottom: 340px
+	background-color: #fff
+	padding-bottom: 20px
+	h1
+		font-size: 36px
+		line-height: 1.2
+		margin-bottom: 20px
+		font-family: "Montserrat-ExtraBold"
+	p
+		margin-bottom: 15px
+		b
+			font-family: "Montserrat-Bold"
+	.icon-box
+		width: 195px
+		display: inline-block
+		vertical-align: top
+		font-size: 12px
+		padding-left: 60px
+		position: relative
+		margin-right: 15px
+		margin-top: 10px
+		strong
+			font-family: "Montserrat-Bold"
+			display: block
+		i
+			position: absolute 
+			left: 0
+			top: 0
+			font-size: 40px
+			line-height: 1.2
+			color: $blue
+	.black-box
+		padding: 30px
+		color: #fff
+		background: $black url(../img/bg-black.png) no-repeat center center
+		background-size: cover
+		min-width: 280px
+		transition: all .3s
+		padding-bottom: 0
+		&:hover
+			background: $blue
+		p
+			font-size: 24px
+			line-height: 1.2
+			b
+				font-family: "Montserrat-Bold"
+				display: block
+		.btn
+			border-top: 1px solid #fff
+h2.title
+	font-size: 30px
+	line-height: 1.2
+	font-family: "Montserrat-ExtraBold"
+.section-two
+	background-color: #f1f2f6
+	.b2-box
+		max-width: 365px
+		background-color: #fff
+		padding: 30px
+		position: relative
+		z-index: 3
+		.btn
+			width: 100%
+		h2
+			font-size: 30px
+			font-family: "Montserrat-ExtraBold"
+			line-height: 1.2
+		p
+			margin: 15px 0
+	.image-block
+		position: absolute
+		top: 50px
+		bottom: 50px
+		right: 0
+		left: 25%
+		z-index: 1
+		background: url(../img/shutterstock_1083014489.jpg) no-repeat center center
+		background-size: cover
+	.black-box
+		position: absolute
+		bottom: 0
+		padding: 30px
+		right: 150px
+		color: #fff
+		background: $black url(../img/bg-black.png) no-repeat center center
+		max-width: 285px
+		font-size: 30px
+		line-height: 1.2
+		font-family: "Montserrat-ExtraBold"
+		color: $blue
+		z-index: 5
+		p
+			margin-bottom: 0
+		b
+			color: #fff
+	.tooltip.active
+		z-index: 15
+	.tooltip
+		position: absolute
+		z-index: 2
+		height: 70px
+		width: 220px
+		.plus
+			width: 35px
+			height: 35px
+			background-color: $black
+			color: #fff
+			font-size: 24px
+			text-align: center
+			line-height: 35px
+			cursor: pointer
+			transition: all .3s
+			z-index: 5
+			@include center-left
+			&:hover
+				background-color: #000
+		.plus.active
+			transform: rotate(45deg) translate(0, -50%)
+			margin-top: -4px
+			+ .overlay
+				box-shadow: 0 0 15px rgba(0,0,0,.1)
+				visibility: visible
+				opacity: 1
+				transform: scale(1) translate(0, -50%)
+		.overlay
+			background-color: #fff
+			padding: 10px 0
+			padding-left: 45px
+			padding-right: 15px
+			@include center-left
+			left: 30px
+			width: 220px
+			font-size: 14px
+			line-height: 1.2
+			z-index: 4
+			visibility: hidden
+			opacity: 0
+			transition: all .3s
+			transform: scale(0)
+			transform-origin: 50% 0
+	.tooltip.tooltip-1
+		top: 20%
+		left: 34%
+	.tooltip.tooltip-2
+		top: 30%
+		left: 44%
+	.tooltip.tooltip-3
+		top: 35%
+		left: 60%
+	.tooltip.tooltip-4
+		top: 45%
+		left: 60%
+	.tooltip.tooltip-5
+		top: 48%
+		left: 37%
+	.tooltip.tooltip-6
+		top: 60%
+		right: 15%
+		.overlay
+			@include center-right
+			left: auto
+			right: 6px
+			padding-left: 15px
+			padding-right: 45px
+			text-align: right
+			transform: scale(0) translate(0, -50%)
+		.plus
+			@include center-right
+			left: auto
+		.plus.active
+			transform: rotate(45deg) translate(0, -50%)
+
+
+	.tooltip.tooltip-7
+		top: 60%
+		left: 20%
+	.tooltip.tooltip-8
+		top: 70%
+		left: 25%
+	.tooltip.tooltip-9
+		bottom: 5px
+		left: 25px
+	.tooltip.tooltip-10
+		bottom: 5px
+		left: 20%
+
+
+.section-three
+	background: url(../img/bg-calc-block.jpg) no-repeat center top
+	background-size: cover
+	h2.title
+		color: #fff
+		+ p
+			color: #fff
+	.calc-block
+		width: 750px
+		display: inline-block
+		vertical-align: bottom
+		background-color: #fff
+		.wrapper
+			padding: 40px 70px
+			&:after
+				@include clearfix
+		.calc-box
+			width: 50%
+			float: left
+			h4
+				font-size: 16px
+				line-height: 1.2
+				margin-bottom: 25px
+				font-family: "Montserrat-Bold"
+			#amount
+				width: 80px
+				padding: 8px 0
+				text-align: center
+				border: 1px solid $black
+				display: inline-block
+				vertical-align: middle
+			#slider
+				display: inline-block
+				width: calc(100% - 100px)
+				margin-left: 10px
+				.ui-slider-handle
+					width: 22px
+					height: 22px
+					border-radius: 0
+					border: none
+					cursor: pointer
+					background-color: $black
+					transform: rotate(45deg)
+					margin-top: -4px
+					transition: background-color .3s
+					&:hover
+						background-color: $blue
+			.ui-widget.ui-widget-content
+				border: 1px solid transparent !important
+				background-color: #dadada !important
+				border-radius: 0
+			.ui-slider-horizontal
+				height: 6px !important
+			.total-slider-count
+				margin-top: 15px
+				span
+					font-size: 14px
+					&:first-child
+						float: left
+					&:last-child
+						float: right
+
+
+	.calc-button-block
+		display: inline-block
+		width: calc(100% - 760px)
+		padding-left: 100px
+		text-align: left
+		h3
+			font-size: 24px
+			line-height: 1.2
+			font-family: "Montserrat-Bold"
+		b
+			font-family: "Montserrat-Bold"
+		.btn
+			padding-right: 10px
+			text-align: left
+
+
+	.calc-block
+		.top-panel
+			border-bottom: 1px solid $black
+			&:after
+				@include clearfix
+			.radio-item
+				float: left
+				width: 33.333%
+				text-align: center
+				.radio 
+					position: absolute
+					z-index: -1
+					opacity: 0
+				.radio + label 
+					position: relative
+					padding: 0 0 0 0
+					cursor: pointer
+					width: 100%
+					z-index: 1
+					margin: 0
+					padding: 25px 0
+					text-transform: uppercase
+					font-family: "Montserrat-Bold"
+				.radio + label:after 
+					content: ''
+					position: absolute
+					top: 0px
+					left: 0px
+					right: 0px
+					bottom: 0px
+					z-index: 5
+					border-bottom: 5px solid $black
+					transition: .2s
+					z-index: -1
+					opacity: 0
+
+				.radio:checked + label:after 
+					opacity: 1;
+				.radio:checked + label
+					font-family: "Montserrat-Regular"
+
+
+				.radio:focus + label:before 
+		.wrapper
+			.calc-box
+				min-height: 110px
+				margin-bottom: 20px
+				small
+					color: #9a9a9a
+					font-size: 12px
+		.room-count
+			padding-left: 25px
+			.radio-item
+				display: inline-block
+				margin-right: 10px
+				.radio 
+					position: absolute
+					z-index: -1
+					opacity: 0
+				.radio + label 
+					position: relative
+					padding: 0 0 0 0
+					cursor: pointer
+					z-index: 1
+					margin: 0
+					text-transform: uppercase
+					font-family: "Montserrat-Bold"
+					width: 40px
+					height: 40px
+					line-height: 40px
+					text-align: center
+					color: #fff
+				.radio + label:after 
+					content: ''
+					position: absolute
+					width: 40px
+					height: 40px
+					left: 0
+					top: 0
+					border: 1px solid $black
+					z-index: 5
+					background-color: $black
+					transition: .2s
+					z-index: -1
+
+				.radio:checked + label:after 
+					opacity: 1;
+					background-color: #fff
+				.radio:checked + label
+					color: $black
+		.check-item
+			margin-bottom: 10px
+			.checkbox 
+				position: absolute
+				z-index: -1
+				opacity: 0
+				margin: 10px 0 0 20px
+
+			.checkbox + label 
+				position: relative
+				padding: 0 0 0 40px
+				cursor: pointer
+				font-size: 14px
+
+			.checkbox + label:before 
+				content: ''
+				position: absolute
+				top: -3px
+				left: 0
+				width: 30px
+				height: 30px
+				border: 1px solid $black
+				transition: .2s
+
+			.checkbox + label:after 
+				content: ''
+				position: absolute
+				top: -3px
+				left: 0px
+				width: 30px
+				height: 30px
+				transition: .2s
+				background-position: center center
+
+			.checkbox:checked + label:before 
+			 	background: $black url(../img/ico-check.png) no-repeat center center
+			.checkbox:checked + label
+				font-family: "Montserrat-Bold"
+		.calc-pos
+			padding-left: 22px
+			
+
+
+				
+
+
+
+.section-four
+	background: url(../img/bg-gray.jpg) no-repeat center bottom
+	background-size: cover
+	h2.title
+		margin-bottom: 40px
+		padding-left: 15px
+	.pf-image-slider
+		.slick-dots
+			text-align: right
+			position: absolute
+			bottom: 20px
+			right: 35px
+	.portfolio-carousel
+		.item
+			padding: 0 15px
+		img
+			width: 100%
+		.btn-slider
+			top: 50%
+			position: absolute
+			z-index: 5
+		.btn-slider.prev
+			left: -60px
+		.btn-slider.next
+			right: -60px
+	.portfolio-box
+		background-color: #fff
+		.wrap
+			padding: 30px
+			&:after
+				@include clearfix
+			.title
+				float: left
+				width: 50%
+				font-size: 20px
+				font-family: "Montserrat-Bold"
+				padding-right: 25px
+				line-height: 1.2
+			.description
+				float: left
+				width: 50%
+				font-size: 14px
+				.type
+					font-family: "Montserrat-Bold"
+				.other
+					p
+						margin-bottom: 0
+						b
+							font-family: "Montserrat-Bold"
+							span
+								color: $blue
+			.button-wrap
+				margin-top: 15px
+				float: left
+				width: 100%
+				.btn
+					padding-left: 20px
+					padding-right: 20px
+					text-align: center
+					width: 48%
+					margin: 0 7px
+					margin-bottom: 10px
+					&:first-child
+						margin-left: 0
+					&:last-child
+						margin-right: 0
+
+
+
+
+
+
+.section-five
+	background-color: #f1f2f6
+	&:after
+		content: ''
+		position: absolute
+		@include center-left
+		width: 420px
+		height: 620px
+		z-index: -1
+		background: url(../img/bg-price.png) no-repeat center center
+		background-size: cover
+	h2
+		padding: 30px
+		color: #fff
+		background: $black url(../img/bg-black.png) no-repeat center center
+		background-size: cover
+		font-size: 30px
+		line-height: 1.2
+		font-family: "Montserrat-ExtraBold"
+	table
+		width: 100%
+		background-color: #fff
+		font-size: 14px
+		margin-bottom: 30px
+		thead
+			background-color: $blue
+			font-size: 16px
+			th
+				font-weight: normal
+				font-family: "Montserrat-Bold"
+				padding: 5px
+				color: #fff
+				padding-left: 30px
+		tbody
+			td
+				padding: 5px 0
+				padding-left: 30px
+			tr
+				&:nth-child(2n+1)
+					background-color: #f1f2f6
+
+.section-six
+	background: url(../img/bg-gray.jpg) no-repeat center top
+	background-size: cover
+	h2.title
+		margin-bottom: 30px
+	.plan-slider
+		.item
+			p
+				font-size: 18px
+				line-height: 1.2
+				font-family: "Montserrat-Bold"
+				margin-bottom: 25px
+	.slick-dots
+		bottom: 15px
+		left: 30px
+		z-index: 5
+		text-align: left
+	.plan-slider-bg
+		position: absolute
+		top: 0
+		bottom: 0
+		right: 0
+		width: 40%
+		z-index: -1
+		.slick-list
+			position: absolute
+			top: 0
+			left: 0
+			right: 0
+			bottom: 0
+		.slick-track
+			position: absolute
+			top: 0
+			left: 0
+			right: 0
+			bottom: 0
+		.item
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			.bg
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-position: center center;
+				background-repeat: no-repeat;
+				background-size: cover;
+	.white-form
+		background-color: #fff
+		ul
+			margin: 15px 0
+			li
+				position: relative
+				padding-left: 15px
+				font-size: 15px
+				&:after
+					content: '▶'
+					position: absolute
+					left: 0
+					top: 0
+					color: $blue
+		.form
+			padding: 30px
+			padding-bottom: 0
+			input[type="text"]
+				width: 100%
+				border: 1px solid $black
+				text-indent: 15px
+				padding: 15px 0
+				transition: all .3s
+				margin-bottom: 15px
+				&:focus
+					border: 1px solid $blue
+		h3
+			font-size: 24px
+			line-height: 1.2
+			font-family: "Montserrat-ExtraBold"
+		.btn
+			padding-left: 10px
+			padding-right: 10px
+			width: 100%
+		p
+			margin: 15px 0 30px
+			small
+				display: inline-block
+				font-size: 10px
+				line-height: 1.2
+		.gift
+			background-color: $blue
+			text-align: center
+			padding: 15px
+			color: #fff
+			span
+				text-decoration: line-through
+			b
+				font-family: "Montserrat-Bold"
+
+.btn-slider
+	background-color: $black
+	width: 60px
+	height: 60px
+	color: #fff
+	&:hover
+		background-color: $blue
+
+.advant-box
+	padding-left: 80px
+	position: relative
+	font-size: 14px
+	margin-bottom: 30px
+	strong
+		font-family: "Montserrat-Bold"
+	p
+		margin-bottom: 0
+	i
+		font-size: 44px
+		position: absolute
+		left: 0
+		top: 0
+		color: $blue
+	ul
+		li
+			position: relative
+			padding-left: 15px
+			&:after
+				content: '▶'
+				position: absolute
+				left: 0
+				top: 0
+				color: $blue
+.section-seven
+	background: url(../img/bg-advant.png) no-repeat center bottom
+	background-size: 100%
+	h2.title
+		margin-bottom: 30px
+
+	.black-box
+		padding: 30px
+		color: #fff
+		background-size: cover
+		font-size: 20px
+		max-width: 460px
+		background: $black url(../img/bg-black.png) no-repeat center center
+		transition: all .3s
+		padding-bottom: 15px
+		&:hover
+			background: $blue
+		b
+			text-transform: uppercase
+			font-family: "Montserrat-Bold"
+		.btn
+			background-color: transparent
+			text-align: right
+			width: 100%
+			padding-right: 0
+		p
+			border-bottom: 1px solid #fff
+			padding-bottom: 15px
+.section-eight
+	background: url(../img/bg-gray.jpg) no-repeat center top
+	background-size: cover
+	.templates
+		margin-bottom: 200px
+	h2.title
+		margin-bottom: 40px
+	h3
+		font-size: 16px
+		line-height: 1.2
+		margin-bottom: 25px
+		b
+			font-family: "Montserrat-Bold"
+	p
+		font-size: 12px
+		margin-bottom: 4px
+	.price
+		font-size: 24px
+		font-family: "Montserrat-Bold"
+		line-height: 1.2
+		color: $blue
+		margin-top: 30px
+		+ p
+			font-size: 16px
+			margin-bottom: 30px
+	.btn
+		padding-left: 12px
+		padding-right: 12px
+	.gallery-block
+		position: absolute
+		bottom: 0
+		left: 0
+		right: 0
+		font-size: 0
+		.btn-slider
+			z-index: 5
+			position: absolute
+			top: 50%
+			transform: translate(0, -50%)
+			font-size: 16px
+		.btn-slider.prev
+			left: 15px
+		.btn-slider.next
+			right: 15px
+			left: auto
+		.item
+			position: relative
+			&:after
+				content: ''
+				display: inline-block
+				position: absolute
+				top: 0
+				left: 0
+				right: 0
+				bottom: 0
+				background-color: rgba(116,146,214,.9)
+				opacity: 0
+				transition: all .3s
+			.title
+				font-size: 24px
+				color: #fff
+				font-family: "Montserrat-Bold"
+				position: absolute
+				top: 30px
+				left: 30px
+				right: 30px
+				line-height: 1.2
+				z-index: 1
+				visibility: hidden
+				opacity: 0
+				transform: scale(0)
+				transition: all .5s
+			a
+				display: inline-block
+				position: absolute
+				bottom: 30px
+				right: 30px
+				width: 60px
+				height: 60px
+				border: 1px solid #fff
+				color: #fff
+				text-align: center
+				line-height: 60px
+				z-index: 10
+				font-size: 60px
+				visibility: hidden
+				opacity: 0
+				transform: scale(0)
+				transition: all .5s
+				&:hover
+					background-color: #fff
+					color: #000
+			&:hover
+				&:after
+					opacity: 1
+				a, .title
+					visibility: visible
+					transform: scale(1)
+					opacity: 1
+
+.mfp-counter
+	display: none
+
+
+
+
+img
+	max-width: 100%
+
+.slick-dots
+	li
+		width: 8px
+		height: 8px
+		border: 1px solid $black
+		background: $black
+		button
+			display: none
+	li.slick-active
+		background-color: #fff
+.slick-dotted.slick-slider
+	margin-bottom: 0
+.white-box
+	max-width: 365px
+	background-color: #fff
+	padding: 30px
+	position: relative
+	z-index: 3
+	.btn
+		width: 100%
+		padding-left: 10px
+		padding-right: 10px
+		text-align: center
+	h2
+		font-size: 30px
+		font-family: "Montserrat-ExtraBold"
+		line-height: 1.2
+	p
+		margin: 30px 0
+
+
+.section-nine
+	background-color: #f1f2f6
+.gallery-section-slider
+	position: absolute
+	top: 0
+	bottom: 0
+	right: 0
+	left: 25%
+	z-index: -1
+	.slick-list
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+	.slick-track
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+	.item
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		.bg
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-size: cover;
+.gallery-section-slider-block
+	.btn-slider
+		position: absolute
+		bottom: 30px
+		right: 30px
+	.btn-gallery-prev
+		right: 110px
+
+.section-ten
+	background: url(../img/bg-gray.jpg) no-repeat center top
+	background-size: cover
+	h2.title
+		margin-bottom: 50px
+.video-carousel
+	.item
+		position: relative
+		padding: 0 15px
+		padding-bottom: 40px
+		.title
+			position: absolute
+			left: 0px
+			bottom: 10px
+			background-color: #fff
+			z-index: 2
+			padding: 25px 55px
+			font-family: "Montserrat-Bold"
+		.play
+			position: absolute
+			right: 15px
+			bottom: 40px
+			display: block
+			width: 100px
+			height: 100px
+			text-align: center
+			font-size: 120px
+			line-height: 80px
+			color: #fff
+			background: $blue
+			&:hover
+				opacity: .8
+	.btn-slider
+		z-index: 5
+		position: absolute
+		top: 50%
+		margin-top: -15px
+		transform: translate(0, -50%)
+		font-size: 16px
+	.btn-slider.prev
+		left: 65px
+	.btn-slider.next
+		right: 65px
+		left: auto
+
+.section-eleven
+	background: url(../img/bg-gray.jpg) no-repeat center top
+	background-size: cover
+	.container
+		position: relative
+		padding: 70px 0
+	.contacts-box
+		padding: 30px
+		color: #fff
+		position: relative
+		z-index: 2
+		background: url(../img/bg-black.png) no-repeat center top
+		background-size: cover
+		h3
+			font-size: 30px
+			line-height: 1.2
+			font-family: "Montserrat-ExtraBold"
+			margin-bottom: 35px
+		strong
+			font-family: "Montserrat-Bold"
+		p
+			margin-bottom: 0
+		.btn
+			background-color: transparent
+			width: 100%
+			padding-right: 0
+			text-align: right
+			padding-top: 25px
+			padding-bottom: 25px	
+			&:hover
+				color: $blue
+		.wrap
+			margin-top: 30px
+			padding-bottom: 55px
+			border-bottom: 1px solid #fff
+			p
+				position: relative
+				padding-left: 25px
+				margin-bottom: 6px
+				&:before
+					content: ''
+					font-family: "icon"
+					position: absolute
+					left: 0
+					top: 0
+					color: $blue
+			p.add
+				&:before
+					content: '\e824'
+			p.phone
+				font-size: 20px
+				font-family: "Montserrat-Bold"
+				a
+					color: #fff
+					&:hover
+						color: $blue
+				&:before
+					content: '\e823'
+	.map	
+		top: 0
+		bottom: 0
+		right: 0
+		left: 100px
+		position: absolute
+		z-index: 1
+		box-shadow: 0 0 35px rgba(0,0,0,.2)
+
+
+.info-modal
+	position: relative
+	background-color: #fff
+	margin: 0 auto
+	padding: 50px 80px
+	max-width: 750px
+	font-size: 14px
+	strong, b
+		font-family: "Montserrat-Bold"
+	ul
+		li
+			position: relative
+			padding-left: 15px
+			&:after
+				content: '▶'
+				position: absolute
+				left: 0
+				top: 0
+				color: $blue
+.popup-form
+	background: url(../img/bg-gray.jpg) no-repeat center top
+	background-size: cover
+	max-width: 555px
+	padding: 70px 100px
+	position: relative
+	margin: 0 auto
+	.btn
+		width: 100%
+	h3
+		font-size: 30px
+		line-height: 1.2
+		font-family: "Montserrat-ExtraBold"
+		margin-bottom: 30px
+		color: #000
+	input[type="text"]
+		width: 100%
+		padding: 17px 0
+		text-indent: 15px
+		background-color: transparent
+		margin-bottom: 20px
+		border: 1px solid #000
+		transition: all .3s
+		font-size: 14px
+		&:focus
+			border: 1px solid $blue
+			background-color: #fff
+.btn-nav-menu
+	background-color: #fff
+	padding: 10px 15px
+	position: absolute
+	top: 5
+	right: 15px
+	z-index: 100
+	img
+		width: 40px
+
+
+.btn-nav-menu-close
+	position: absolute
+	right: 15px
+	width: 60px
+	z-index: 100
+	background-color: transparent
+
+	img
+		width: 30px
+.scroll-btn-section
+	text-align: right
+	position: fixed
+	top: 0
+	left: 0
+	right: 0
+	z-index: 30
+	padding-top: 25px
+	height: 0
+	.btn-nav-menu2
+		z-index: 5
+		width: 70px
+		height: 48px
+		top: 6px
+		height: auto !important
+
+@import "media" // Always at the end
